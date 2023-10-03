@@ -15,7 +15,6 @@ const PREFLIGHT_INIT = {
     'access-control-allow-origin': '*',
     'access-control-allow-methods': 'GET,POST,PUT,PATCH,TRACE,DELETE,HEAD,OPTIONS',
     'access-control-max-age': '1728000',
-    'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36',
   }),
 }
 
@@ -80,7 +79,7 @@ async function fetchHandler(e) {
     return makeRes('it works')
   default:
     // static files
-    return fetch(ASSET_URL + path)
+    return fetch(ASSET_URL + path,{headers: {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36'}})
   }
 }
 
